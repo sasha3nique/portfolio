@@ -115,8 +115,10 @@ a:hover {
 }
 
 .portfolio__social i {
+  min-width: 56px;
   font-size: 48px;
   color: #fff;
+  text-align: center;
   background: #10002B;
   border: 4px solid #10002B;
   border-radius: 50%;
