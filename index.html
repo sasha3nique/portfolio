@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <link rel="apple-touch-icon" sizes="180x180" href="./src/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./src/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./src/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#3C096C">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./node_modules/@fortawesome/fontawesome-free/css/all.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/tooltip.css">
+    <link href="https://fonts.googleapis.com/css2?family=Pangolin&display=swap" rel="stylesheet">
+    <title>Дядченко О.С. - Портфолио</title>
+</head>
+<body>
+    <div class="svg-back">
+
+    </div>
+    <div class="container" id="root">
+        <aside class="portfolio">
+            <div class="portfolio__image">
+                <div class="portfolio__social">                  
+                    <a href="https://github.com/sasha3nique" target="_blank">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://t.me/cluckin" target="_blank">
+                        <i class="fab fa-telegram"></i>
+                    </a>
+                </div>
+                <img src="./src/avatar.jpg" alt="Avatar" class="portfolio__avatar">
+            </div>
+            <div class="portfolio__main">
+
+            <div class="portfolio__label">
+                {{ fullname }}
+                <div class="portfolio__label-aka">
+                    {{ getNickname }}
+                </div>
+            </div>
+            <div class="portfolio__shortinfo">
+                {{ shortInfo }}
+                <br>
+                <i class="far fa-envelope"></i> 
+                <input type="text" :value="email" id="email_text">
+                <div class="tooltip">
+                    <button onclick="copy('email_text', 'email_ttip')" onmouseout="outFunc()" class="button-copy">
+                        <span class="tooltiptext" id="email_ttip">Скопировать</span>
+                        alexander.diadchenko@gmail.com
+                    </button>
+                </div>
+                <br>
+                <i class="fas fa-phone"></i>
+                <input type="text" :value="telephone" id="telephone_text">
+                <div class="tooltip">
+                    <button onclick="copy('telephone_text', 'telephone_ttip')" onmouseout="outFunc()" class="button-copy">
+                        <span class="tooltiptext" id="telephone_ttip">Скопировать</span>
+                        +380987179946 (Kyivstar)
+                    </button>
+                </div>
+            </div>
+        </div>
+            <button class="portfolio__show-portfolio" @click="switchPage('portfolioPage')">
+                Открыть портфолио
+            </button>
+            
+        </aside>
+
+
+        <article class="main" v-if="pages.mainPage">
+            <h1>Что я могу на данный момент:</h1>
+            <div class="block" id="html-block">
+                <div class="block__label">
+                    Html5
+                </div>
+                <div class="block__info">
+                    <ul>
+                        <li>Семантически правильная верстка</li>
+                        <li>...что тут еще писать нужно?</li>
+                    </ul>
+                </div>
+                
+            </div>
+            <div class="block" id="css-block">
+                
+                <div class="block__label">
+                    CSS3 + SCSS 
+                </div>
+                <div class="block__info">
+                    <ul>
+                        <li>Стараюсь делать правильно и красиво</li>
+                        <li>Пользуюсь препроцессором SCSS</li>
+                        <li>Адаптивная верстка</li>
+                        <li>Анимация и переходы</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="block" id="js-block">
+                <div class="block__label">
+                    Javascript + Vue.Js
+                </div>
+                <div class="block__info">
+                    <ul>
+                        <li>Ванильный JS</li>
+                        <li>ES6, ES7 и вот это самое</li>
+                        <li>Паттерны программирования</li>
+                        <li>Стараюсь писать чистый код</li>
+                        <li>Знаю VueJS на среднем уровне</li>
+                        <li>Могу прикрутить плагины, финтифлюхи и тд</li>
+                    </ul>
+                </div>
+            </div>
+        </article>
+
+        <article v-if="pages.portfolioPage" id="portfolio-main">
+            <a href="http://sasha3nique.github.io/portf-responsive-landing/" target="_blank" rel="noopener noreferrer">
+                <div class="block portfolio__block">
+                    <div class="block__label">
+                        Адаптивный лэндинг
+                    </div>
+                    <div class="block__img">
+                        <img src="./src/portfolio/landing.png" alt="">
+                    </div>
+                    <div class="block__showButton">
+                        Посмотреть
+                    </div>
+                </div>
+            </a>
+            <a href="https://sasha3nique.github.io/calculator-vue/" target="_blank" rel="noopener noreferrer">
+                <div class="block portfolio__block">
+                    <div class="block__label">
+                        Калькулятор на Vue.JS
+                    </div>
+                    <div class="block__img">
+                        <img src="./src/portfolio/calc.png" alt="">
+                    </div>
+                    <div class="block__showButton">
+                        Посмотреть
+                    </div>
+                </div>
+            </a>
+        </article>
+
+        <article v-if="pages.skillsPage">
+            <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero placeat dolores ratione at, neque quidem nihil obcaecati accusantium nam numquam voluptatibus est doloribus modi iure facilis quisquam perspiciatis ea? Magnam?Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, doloremque eaque. Quam harum, totam omnis earum maiores eius debitis! Inventore error, facilis adipisci quaerat quidem laborum harum vero magni. Deleniti!lorem</span>
+        </article>
+
+        <article v-if="pages.mePage" id="mePage">
+            <h1>Немного о себе</h1>
+            <div class="anim-rotate-wrapper">
+                <div class="anim-rotate" id="skateboard">
+                    <img src="./src/skateboard1.png" alt="">
+                </div>
+            </div>
+            <br>
+            <div class="me__text">
+                Люблю: скейтбординг, географию, тишину, индюший паштет и <a href="https://www.youtube.com/watch?v=AB6sOhQan9Y" target="_blank"> саундтрек первого дарк соулса </a> 
+                <br>
+                Не люблю: плавание, физику, шум, плов и кальянный рэп
+                <br>
+                <br>
+                Случайные факты об моей персоне: 
+                <ul>
+                    <li>Я пью кофе дважды в году - на зимней и на весенней ссесии</li>
+                    <li>Ненавижу соц. сети (особенно инстаграм)</li>
+                    <li><a href="https://www.last.fm/user/whitearmor_" target="_blank" rel="noopener noreferrer">Мой профиль на last.fm</a></li>
+                    <li>Любимый фильм - "На игле"</li>
+                    <li>Умею печь блинчики 🥞</li>
+                </ul>
+            </div>
+        </article>
+
+        <nav class="nav">
+            <div class="tab" @click="switchPage('mainPage')" :class="{active : pages.mainPage}">Главная страница</div>
+            <div class="tab" @click="switchPage('portfolioPage')" :class="{active : pages.portfolioPage}">Портфолио</div>
+            <!-- ? пока не нужно  -->
+            <!-- <div class="tab" @click="switchPage('skillsPage') " :class="{active : pages.skillsPage}">Скиллы</div> -->
+            <div class="tab" @click="switchPage('mePage'), startAnim()" :class="{active : pages.mePage}">Немного о себе</div>  
+        </nav>
+    </div>
+    
+</body>
+
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script src="js/index.js"></script>
+</html>
