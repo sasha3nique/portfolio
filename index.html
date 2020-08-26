@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
+    
     <link rel="apple-touch-icon" sizes="180x180" href="./src/favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="./src/favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="./src/favicon/favicon-16x16.png">
@@ -10,11 +11,11 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="./node_modules/@fortawesome/fontawesome-free/css/all.css" rel="stylesheet">
     <link rel="stylesheet" href="./css/main.css">
     <link rel="stylesheet" href="./css/tooltip.css">
     <link href="https://fonts.googleapis.com/css2?family=Pangolin&display=swap" rel="stylesheet">
     <title>Дядченко О.С. - Портфолио</title>
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 </head>
 <body>
     <div class="svg-back">
@@ -25,10 +26,11 @@
             <div class="portfolio__image">
                 <div class="portfolio__social">                  
                     <a href="https://github.com/sasha3nique" target="_blank">
-                        <i class="fab fa-github"></i>
+                        <i class="fa fa-github"></i>
                     </a>
                     <a href="https://t.me/cluckin" target="_blank">
-                        <i class="fab fa-telegram"></i>
+                        <i class="fa fa-telegram" aria-hidden="true"></i>
+
                     </a>
                 </div>
                 <img src="./src/avatar.jpg" alt="Avatar" class="portfolio__avatar">
@@ -44,16 +46,17 @@
             <div class="portfolio__shortinfo">
                 {{ shortInfo }}
                 <br>
-                <i class="far fa-envelope"></i> 
+                <i class="fa fa-envelope"></i>
                 <input type="text" :value="email" id="email_text">
                 <div class="tooltip">
                     <button onclick="copy('email_text', 'email_ttip')" onmouseout="outFunc()" class="button-copy">
                         <span class="tooltiptext" id="email_ttip">Скопировать</span>
+                        
                         alexander.diadchenko@gmail.com
                     </button>
                 </div>
                 <br>
-                <i class="fas fa-phone"></i>
+                <i class="fa fa-phone"></i>
                 <input type="text" :value="telephone" id="telephone_text">
                 <div class="tooltip">
                     <button onclick="copy('telephone_text', 'telephone_ttip')" onmouseout="outFunc()" class="button-copy">
